@@ -31,7 +31,7 @@ class UnzipDownloadedFile implements IPipelineAction
             $zip = Zip::open($file);
             $zip->extract(sys_get_temp_dir());
             $list = array_map(function($item){
-                return sys_get_temp_dir().$item;
+                return sys_get_temp_dir()."/".$item;
             }, $zip->listFiles() );
             unlink($file);
 
