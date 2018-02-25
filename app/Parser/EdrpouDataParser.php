@@ -22,17 +22,17 @@ class EdrpouDataParser
     {
         $xml->read(); // DataField
         $xml->read(); //First record
-        $counter = 1000;
+//        $counter = 1000;
         do
         {
             if ($xml->localName == 'RECORD')
             {
                 $this->parseRecord($xml->readOuterXml());
-                $counter--;
-                if ($counter == 0)
-                {
-                    break;
-                }
+//                $counter--;
+//                if ($counter == 0)
+//                {
+//                    break;
+//                }
 
 
             }

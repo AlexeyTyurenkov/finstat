@@ -31,7 +31,7 @@ class XMLDataReader implements IPipelineAction
             $filelist->each(function($file){
                 $reader = new EdrpouDataParser();
                 $reader->readFile($file);
-            //    unlink($file);
+                unlink($file);
             });
             return null;
         }
