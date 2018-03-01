@@ -20,3 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/', function (Request $request){
    return "Hola!";
 });
+
+Route::get('/htcommercial', function (){
+//    return App\BuySellRate::commercial()->get();
+    return new App\Http\Resources\HTCommercial(\App\BuySellRate::commercial()->get());
+});
