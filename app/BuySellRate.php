@@ -32,7 +32,6 @@ class BuySellRate extends Model
         {
             $date = now();
         }
-//        var_dump($query->where('type', $type)->whereDate('day',$date));
         return $query->where('type', $type)->whereDate('day',$date->format('Y-m-d'));
     }
 

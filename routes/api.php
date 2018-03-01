@@ -21,7 +21,14 @@ Route::get('/', function (Request $request){
    return "Hola!";
 });
 
-Route::get('/htcommercial', function (){
-//    return App\BuySellRate::commercial()->get();
+Route::get('/ht/commercial', function (){
     return new App\Http\Resources\HTCommercial(\App\BuySellRate::commercial()->get());
+});
+
+Route::get('/ht/black', function (){
+    return new App\Http\Resources\HTCommercial(\App\BuySellRate::black()->get());
+});
+
+Route::get('/ht/interbank', function (){
+    return new App\Http\Resources\HTCommercial(\App\BuySellRate::interbank()->get());
 });
