@@ -47,5 +47,5 @@ Artisan::command('hryvnatoday', function () {
 new App\Pipeline\PipelineAction\HryvniaTodayInterbankGetter(),
 new App\Pipeline\PipelineAction\HryvniaTodayBlackGetter(),
 //        new App\Pipeline\PipelineAction\PrintoutParameters(),
-        ], null));
+        ], ['htkey'=>env('HT_KEY',"")]));
 })->describe('Hryvnia Today Pipeline');

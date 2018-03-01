@@ -100,7 +100,7 @@ class HryvniaTodayDownloader implements IPipelineAction
         $client = new Client(
             ['base_uri' => 'https://hryvna-today.p.mashape.com/v1/rates/']
         );
-        $response = $client->get('today',["headers"=>["X-Mashape-Key" => "toXBPWGSuAmshkc7QiLaiaoBJhwpp1xXZS7jsnAXdRg8nzibGn",
+        $response = $client->get('today',["headers"=>["X-Mashape-Key" => $params['htkey'],
             "Accept" => "application/json"]]);
         return ["json"=> json_decode($response->getBody(), true),
             "rates"=>array()];
