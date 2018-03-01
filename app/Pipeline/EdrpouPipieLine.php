@@ -47,6 +47,7 @@ class EdrpouPipieLine
                         echo $exception->getMessage()."\n";
                     }
                     echo $action->title()." finished\n";
+                    $result = array_merge($nextParameters,$result);
                     return $result;
                 }
                 else

@@ -38,3 +38,14 @@ Artisan::command('xmlparse', function () {
     //'/tmp/15.1-EX_XML_EDR_UO.xml',
     $this->comment($pipeline->run([new \App\Pipeline\PipelineAction\XMLDataReader()], ['downloadedfiles'=>['/tmp/15.2-EX_XML_EDR_FOP.xml']]));
 })->describe('EDRPOU database pipeline');
+
+
+Artisan::command('hryvnatoday', function () {
+    $pipeline = new EdrpouPipieLine();
+    $this->comment($pipeline->run([new App\Pipeline\PipelineAction\HryvniaTodayDownloader(),
+        new App\Pipeline\PipelineAction\HryvniaTodayCommercialGetter(),
+new App\Pipeline\PipelineAction\HryvniaTodayInterbankGetter(),
+new App\Pipeline\PipelineAction\HryvniaTodayBlackGetter(),
+//        new App\Pipeline\PipelineAction\PrintoutParameters(),
+        ], null));
+})->describe('Hryvnia Today Pipeline');
