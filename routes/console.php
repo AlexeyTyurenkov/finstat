@@ -49,3 +49,11 @@ new App\Pipeline\PipelineAction\HryvniaTodayBlackGetter(),
 //        new App\Pipeline\PipelineAction\PrintoutParameters(),
         ], ['htkey'=>env('HT_KEY',"")]));
 })->describe('Hryvnia Today Pipeline');
+
+Artisan::command('uxindex', function () {
+    $pipeline = new EdrpouPipieLine();
+    $this->comment($pipeline->run( [new App\Pipeline\PipelineAction\UXMainIndexDownloader(),
+        new App\Pipeline\PipelineAction\UXXMLParser(),
+        new App\Pipeline\PipelineAction\PrintoutParameters(),
+    ], []));
+})->describe('Hryvnia Today Pipeline');
