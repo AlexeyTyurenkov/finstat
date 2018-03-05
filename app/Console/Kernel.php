@@ -27,6 +27,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('hryvnatoday')
             ->everyThirtyMinutes()
             ->between('7:00', '17:00');
+
+        $schedule->command('uxindex')->everyMinute()->between('06:59','16:00');
     }
 
     /**
