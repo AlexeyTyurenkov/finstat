@@ -54,6 +54,6 @@ Artisan::command('uxindex', function () {
     $pipeline = new EdrpouPipieLine();
     $this->comment($pipeline->run( [new App\Pipeline\PipelineAction\UXMainIndexDownloader(),
         new App\Pipeline\PipelineAction\UXXMLParser(),
-        new App\Pipeline\PipelineAction\PrintoutParameters(),
+        new App\Pipeline\PipelineAction\UXXMLDataSaver(),
     ], []));
 })->describe('Hryvnia Today Pipeline');

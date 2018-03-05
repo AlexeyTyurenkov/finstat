@@ -32,3 +32,7 @@ Route::get('/ht/black', function (){
 Route::get('/ht/interbank', function (){
     return new App\Http\Resources\HTCommercial(\App\BuySellRate::interbank()->get());
 });
+
+Route::get('/ux/index', function (Request $request){
+    return \App\UxIndexCurrent::find(1)->toJson();
+});
