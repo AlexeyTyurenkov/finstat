@@ -29,6 +29,7 @@ class Kernel extends ConsoleKernel
             ->between('7:00', '17:00');
 
         $schedule->command('uxindex')->everyMinute()->between('06:59','16:00');
+        $schedule->command('pftsindex')->everyFifteenMinutes()->between('06:59','16:00');
     }
 
     /**

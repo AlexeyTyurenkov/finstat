@@ -58,7 +58,7 @@ Artisan::command('uxindex', function () {
     ], []));
 })->describe('UX Index Pipeline');
 
-Artisan::command('pfts', function () {
+Artisan::command('pftsindex', function () {
     $pipeline = new EdrpouPipieLine();
     $this->comment($pipeline->run( [new App\Pipeline\PipelineAction\PFTSIndexDownloader(),
         new App\Pipeline\PipelineAction\PFTSCSVParser(),
