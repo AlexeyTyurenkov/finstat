@@ -17,7 +17,7 @@ class UXXMLParser implements IPipelineAction
      */
     function title()
     {
-        return "Parsing XML with current index value";
+        return "Parsing XML with current Ukrainian eXchange index value";
     }
 
     /**

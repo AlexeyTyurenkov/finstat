@@ -36,3 +36,8 @@ Route::get('/ht/interbank', function (){
 Route::get('/ux/index', function (Request $request){
     return \App\UxIndexCurrent::find(1)->toJson();
 });
+
+
+Route::get('/pfts/index', function (Request $request){
+    return \App\PFTSIndex::find(1)->toJson();
+});

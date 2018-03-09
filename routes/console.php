@@ -56,4 +56,12 @@ Artisan::command('uxindex', function () {
         new App\Pipeline\PipelineAction\UXXMLParser(),
         new App\Pipeline\PipelineAction\UXXMLDataSaver(),
     ], []));
-})->describe('Hryvnia Today Pipeline');
+})->describe('UX Index Pipeline');
+
+Artisan::command('pfts', function () {
+    $pipeline = new EdrpouPipieLine();
+    $this->comment($pipeline->run( [new App\Pipeline\PipelineAction\PFTSIndexDownloader(),
+        new App\Pipeline\PipelineAction\PFTSCSVParser(),
+        new App\Pipeline\PipelineAction\PFTSIndexSaver()
+    ], ['date'=>date('Y-m-d')]));
+})->describe('PFTS Index Pipeline');
