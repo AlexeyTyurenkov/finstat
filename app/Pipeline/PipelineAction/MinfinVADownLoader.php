@@ -27,7 +27,7 @@ class MinfinVADownLoader implements IPipelineAction
     function run(Array $params, &$stop)
     {
         $client = new Client(
-            ['base_uri' => 'http://api.minfin.com.ua/auction/info/3c75b52de5f68f7d34e49a22d13c7caf7cd5dd35/']
+            ['base_uri' => 'http://api.minfin.com.ua/auction/info/'.$params['mfkey'].'/']
         );
         $response = $client->get("",["headers"=>[
             "Accept" => "application/json",

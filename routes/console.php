@@ -70,7 +70,8 @@ Artisan::command('minfinmb', function () {
     $pipeline = new EdrpouPipieLine();
     $this->comment($pipeline->run( [new App\Pipeline\PipelineAction\MinfinMBDownloader(),
         new App\Pipeline\PipelineAction\MinfinMBParser()
-    ], ["date" => ""]));
+    ], ["date" => "",
+        'mfkey'=>env('MF_KEY',"")]));
     /*['date'=>date('Y-m-d')]*/
 })->describe('Min Fin Interbank Pipeline');
 
@@ -78,6 +79,6 @@ Artisan::command('minfinva', function () {
     $pipeline = new EdrpouPipieLine();
     $this->comment($pipeline->run( [new App\Pipeline\PipelineAction\MinfinVADownLoader(),
         new App\Pipeline\PipelineAction\MinfinVAParser()
-    ], []));
+    ], ['mfkey'=>env('MF_KEY',"")]));
     /*['date'=>date('Y-m-d')]*/
 })->describe('Min Fin Interbank Pipeline');
