@@ -30,6 +30,9 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('uxindex')->everyMinute()->between('06:59','16:00');
         $schedule->command('pftsindex')->everyFifteenMinutes()->between('06:59','16:00');
+        $schedule->command('minfinmb')->everyFifteenMinutes()->between('10:00','18:00');
+        $schedule->command('minfinva')->everyFifteenMinutes()->between('06:05','20:05');
+
     }
 
     /**

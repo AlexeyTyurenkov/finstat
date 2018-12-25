@@ -65,3 +65,19 @@ Artisan::command('pftsindex', function () {
         new App\Pipeline\PipelineAction\PFTSIndexSaver()
     ], ['date'=>date('Y-m-d')]));
 })->describe('PFTS Index Pipeline');
+
+Artisan::command('minfinmb', function () {
+    $pipeline = new EdrpouPipieLine();
+    $this->comment($pipeline->run( [new App\Pipeline\PipelineAction\MinfinMBDownloader(),
+        new App\Pipeline\PipelineAction\MinfinMBParser()
+    ], ["date" => ""]));
+    /*['date'=>date('Y-m-d')]*/
+})->describe('Min Fin Interbank Pipeline');
+
+Artisan::command('minfinva', function () {
+    $pipeline = new EdrpouPipieLine();
+    $this->comment($pipeline->run( [new App\Pipeline\PipelineAction\MinfinVADownLoader(),
+        new App\Pipeline\PipelineAction\MinfinVAParser()
+    ], []));
+    /*['date'=>date('Y-m-d')]*/
+})->describe('Min Fin Interbank Pipeline');
